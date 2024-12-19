@@ -1,0 +1,94 @@
+:root {
+    --color-dark: #050505;
+    --color-light: #fafafa;
+
+    --s-5: clamp(0.33rem,0.39rem + -0.29vw,0.18rem);
+    --s-4: clamp(0.41rem,0.47rem + -0.31vw,0.25rem);
+    --s-3: clamp(0.51rem,0.57rem + -0.31vw,0.35rem);
+    --s-2: clamp(0.64rem,0.69rem + -0.27vw,0.5rem);
+    --s-1: clamp(0.8rem,0.84rem + -0.18vw,0.71rem);
+    --s0: clamp(1rem,1rem + 0vw,1rem);
+    --s1: clamp(1.25rem,1.19rem + 0.32vw,1.41rem);
+    --s2: clamp(1.56rem,1.39rem + 0.85vw,2rem);
+    --s3: clamp(1.95rem,1.61rem + 1.7vw,2.83rem);
+    --s4: clamp(2.44rem,1.83rem + 3.04vw,4rem);
+    --s5: clamp(3.05rem,2.04rem + 5.07vw,5.65rem);
+
+    
+    --border-thin: var(--s-5);
+    --border-thick: var(--s-2);
+
+    --measure: 65ch;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+ *,
+ *::before,
+ *::after {
+     box-sizing: inherit;
+ }
+
+ /* Exception-based styling ----------------------- */
+blockquote, body, dd, dl, figure, h1, h2, h3, h4, p {
+    margin-block: 0;
+}
+
+
+body{
+    background-color: var(--color-dark);
+
+    min-height: 100vh;
+    margin-inline: 0;
+    /* padding: var(--s1); */
+}
+
+/* Stack =================================== */
+/* === is NOT Stack layout ===  */
+.stack {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 85ch;
+    margin-inline: auto;
+    margin-block-start: var(--space, 1.5rem);
+
+    border: var(--border-thin) solid var(--color-light);
+    padding: var(--s1);
+}
+
+/* 
+.stack > * + * targets all direct child elements of elements with the class "stack", 
+but only if they are not preceded by another direct child element of the same parent. 
+In other words, it selects all elements that are descendants of elements with the class "stack" 
+but are not descendants of other elements with the class "stack".
+*/  
+.stack > * + * {
+    margin-block-start: var(--space, 1.5rem);
+}
+
+/* Box =================================== */
+.box {
+    padding: var(--s1);
+    border: var(--border-thin) solid;
+
+    background-color: var(--color-dark);
+    color: var(--color-light);
+} 
+
+.box.one {
+    padding: var(--s5);
+}
+.box.three {
+    padding: var(--s4);
+}
+
+/* .box * {
+    color: inherit;
+    background-color: var(--color-dark)
+} 
+.box.invert {
+    filter: invert(100%);
+} */
